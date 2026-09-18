@@ -163,6 +163,9 @@ function App() {
 }
 
 function InvitationPage() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const personalizedNames = queryParams.get('para')?.trim() || '';
+  const isPublicInvitation = Boolean(personalizedNames);
   const [modules, setModules] = useState<ModuleSettings>(() => {
     try {
       return { ...defaultModules, ...JSON.parse(localStorage.getItem('daniela-miguel-modules') || '{}') };
@@ -170,14 +173,11 @@ function InvitationPage() {
       return defaultModules;
     }
   });
-  const [editorOpen, setEditorOpen] = useState(false);
+  const [editorOpen, setEditorOpen] = useState(() => !isPublicInvitation);
   const [musicOn, setMusicOn] = useState(false);
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
   const [shared, setShared] = useState(false);
   const [guests, setGuests] = useState<Guest[]>(loadGuests);
-  const queryParams = new URLSearchParams(window.location.search);
-  const personalizedNames = queryParams.get('para')?.trim() || '';
-  const isPublicInvitation = Boolean(personalizedNames);
   const inviteeNames = personalizedNames || guests[0]?.names?.trim() || 'Familia invitada';
   const rsvpStorageKey = `daniela-miguel-rsvp-${encodeURIComponent(inviteeNames)}`;
   const [rsvpResponse, setRsvpResponse] = useState<RsvpResponse | null>(() => {
