@@ -868,6 +868,7 @@ function EditorPanel({ modules, guests, onToggle, onGuestsChange, onClose }: { m
         </div>
         <div className="flex-1 overflow-y-auto p-6">
           <div className="mb-6 flex items-center gap-2 rounded-xl bg-[#eef1f3] p-3 text-xs text-[#687680]"><Sparkles size={15} /> Los cambios se guardan automáticamente en este dispositivo.</div>
+          <GuestManager guests={guests} onChange={onGuestsChange} />
           <div className="space-y-2">
             {(Object.keys(moduleLabels) as ModuleKey[]).map((key) => (
               <button key={key} onClick={() => onToggle(key)} data-testid={`button-toggle-${key}`} className="flex w-full items-center justify-between rounded-xl border border-[#d5dce1] bg-[#fbfcfc] p-4 text-left transition hover:border-[#aeb8bf]">
@@ -876,7 +877,6 @@ function EditorPanel({ modules, guests, onToggle, onGuestsChange, onClose }: { m
               </button>
             ))}
           </div>
-          <GuestManager guests={guests} onChange={onGuestsChange} />
         </div>
         <div className="border-t border-[#d5dce1] p-6"><button onClick={onClose} data-testid="button-return-preview" className="flex w-full items-center justify-center gap-2 rounded-full bg-[#aeb8bf] py-3 text-xs font-semibold text-white"><ChevronLeft size={15} /> Volver a la vista previa</button></div>
       </aside>
