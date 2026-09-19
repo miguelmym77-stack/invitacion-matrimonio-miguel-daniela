@@ -1,3 +1,8 @@
+## Enlaces rápidos
+
+- **Invitación para invitados:** https://invitacion-de-matrimonio--miguelmym77.replit.app/?para=Familia%20Invitada
+- **Editor y gestión de invitados:** https://invitacion-de-matrimonio--miguelmym77.replit.app
+
 # Invitación de matrimonio — Miguel Ángel y Daniela
 
 Invitación digital interactiva para el sábado 7 de noviembre de 2026.
